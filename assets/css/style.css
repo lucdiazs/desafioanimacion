@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Reglas para notebooks */
+@media (min-width: 961px){
+  nav {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+
+  button {
+    display: none;
+  }
+}
+
+body {
+  max-width: 100vw;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
+
+nav {
+  background-color: black;
+  position: fixed;
+  height: 72px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  height: 100%;
+}
+
+li {
+  height: 100%;
+  line-height: 72px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  &:hover{
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+button {
+  rotate: 90deg;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 10px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  display: none;
+}
+
+span {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  border: 0;
+  border-radius: 32px;
+  position: absolute;
+  left: 20px;
+  top: 4px;
+  line-height: 64px;
+  text-align: center;
+}
+
+.logo {
+  height: 2.5rem;
+  text-align: center;
+}
+
+span.logo img {
+  height: 4em;
+  transition: transform 0.3s ease;
+}
+
+span.logo:hover img {
+  transform: rotate(360deg);
+}
+
+.grid-container {
+  padding-top: 72px;
+  display: grid;
+  grid-template-areas:
+    "nav nav nav"
+    "main main aside"
+    "footer footer footer";
+  grid-template-columns: 2fr 2fr 1fr;
+}
+
+.card-container {
+  grid-area: main;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.section-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  height: 25em;
+  width: 20em;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.section-card h2 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff; 
+  margin-bottom: 10px;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.pagina-aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.figuras {
+  width: calc(100% - 40px); /* Ajusta el ancho al 80% de la página */
+  margin-top: 20px;
+}
+
+.figuras-movimiento {
+  width: 100%;
+  filter: grayscale(100%);
+  transition: all 1s;
+}
+
+.figuras-movimiento:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+.pagina-footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+.pagina-footer a {
+  margin: 0 10px;
+  transition: opacity 0.3s ease;
+}
+
+.pagina-footer a:hover {
+  opacity: 0.7;
+}
+
+.pagina-footer img {
+  width: 100px;
+  height: auto;
+}
+
+/* Reglas para dispositivos móviles */
+@media (max-width: 960px){
+  body {
+    font-size: 14px;
+  }
+
+  nav {
+    padding-left: 10px;
+    padding-right: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  ul {
+    flex-direction: column;
+    align-items: stretch;
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+  }
+
+  li {
+    width: 100%;
+    border-bottom: 1px solid white;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  button {
+    display: initial;
+  }
+
+  button:hover + ul {
+    display: flex;
+  }
+
+  .grid-container {
+    grid-template-areas:
+      "nav"
+      "main"
+      "aside"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .card {
+    height: auto;
+    width: 100%;
+    
+  }
+}
+
